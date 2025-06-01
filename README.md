@@ -1,3 +1,3 @@
-https://github.com/dev-raman05/Personality-Detection-App
+https://personality-detection-app.onrender.com
 
 check it out here!!
