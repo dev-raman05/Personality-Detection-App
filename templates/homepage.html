@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Introvert vs Extrovert Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container fade-in">
+        <h1>Introvert vs Extrovert Predictor</h1>
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="Time_spent_Alone">🕒 Time spent alone (hrs)</label>
+                <input type="number" id="Time_spent_Alone" name="Time_spent_Alone" required>
+            </div>
+
+            <div class="form-group">
+                <label>🎤 Stage Fear:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="Stage_fear" value="Yes" required> Yes</label>
+                    <label><input type="radio" name="Stage_fear" value="No" required> No</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="Social_event_attendance">🎉 Social events attended per month</label>
+                <input type="number" id="Social_event_attendance" name="Social_event_attendance" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Going_outside">🚶‍♂️ Time spent outside (hrs)</label>
+                <input type="number" id="Going_outside" name="Going_outside" required>
+            </div>
+
+            <div class="form-group">
+                <label>😓 Drained after socializing?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="Drained_after_socializing" value="Yes" required> Yes</label>
+                    <label><input type="radio" name="Drained_after_socializing" value="No" required> No</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="Friends_circle_size">👫 Friend circle size</label>
+                <input type="number" id="Friends_circle_size" name="Friends_circle_size" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Post_frequency">📱 Social media post frequency (per month)</label>
+                <input type="number" id="Post_frequency" name="Post_frequency" required>
+            </div>
+
+            <button type="submit" class="btn">🔮 Predict</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result fade-in-delayed">
+                🎯 Predicted Personality Type: <strong>{{ prediction }}</strong>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
